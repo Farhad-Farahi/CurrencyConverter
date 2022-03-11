@@ -4,5 +4,5 @@ object Constants {
     const val BASE_URL = "http://api.exchangeratesapi.io/"
 
     //should be hide in real project
-    const val API_KEY="a0b5c258087ee4ab755c81eef34ea31a"
+    const val API_KEY = "1f509c46a28d0b372f4dd01f40356e4d"
 }

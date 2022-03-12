@@ -8,7 +8,7 @@ import androidx.appcompat.app.AlertDialog
 object Helper {
     fun createDialog(
         context: Context, title: String, message: String,
-        positiveName: String, options: Array<String>? = null
+        positiveName: String
     ): AlertDialog {
         return AlertDialog.Builder(context)
             .setTitle(title)

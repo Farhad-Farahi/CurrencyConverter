@@ -21,20 +21,22 @@ class GetCurrencyExchangesUseCaseTest {
 
 
     @Test
-    fun dataTransferFromFakeRepositoryShouldBeEqual_returnsTrue() : Unit = runBlocking {
+    fun dataTransferFromFakeRepositoryShouldBeEqual_returnsTrue(): Unit = runBlocking {
         val exchangeModelResponse = getCurrencyExchangesUseCase.invoke().first()
         exchangeModelResponse.data?.apply {
-            assertThat(base == FakeCurrencyRepositoryImplTest.exchangeModelResponse.base
-                    && date == FakeCurrencyRepositoryImplTest.exchangeModelResponse.date
-                    && success == FakeCurrencyRepositoryImplTest.exchangeModelResponse.success
-                    && timestamp == FakeCurrencyRepositoryImplTest.exchangeModelResponse.timestamp
-                    && rates.AED == FakeCurrencyRepositoryImplTest.exchangeModelResponse.rates.AED
-                    && rates.AWG == FakeCurrencyRepositoryImplTest.exchangeModelResponse.rates.AWG).isTrue()
+            assertThat(
+                base == FakeCurrencyRepositoryImplTest.exchangeModelResponse.base
+                        && date == FakeCurrencyRepositoryImplTest.exchangeModelResponse.date
+                        && success == FakeCurrencyRepositoryImplTest.exchangeModelResponse.success
+                        && timestamp == FakeCurrencyRepositoryImplTest.exchangeModelResponse.timestamp
+                        && rates.AED == FakeCurrencyRepositoryImplTest.exchangeModelResponse.rates.AED
+                        && rates.AWG == FakeCurrencyRepositoryImplTest.exchangeModelResponse.rates.AWG
+            ).isTrue()
         }
     }
 
     @Test
-    fun dataTransferFromFakeRepositoryShouldBeEqual_returnsFalse() : Unit = runBlocking {
+    fun dataTransferFromFakeRepositoryShouldBeEqual_returnsFalse(): Unit = runBlocking {
         val exchangeModelResponse = getCurrencyExchangesUseCase.invoke().first()
         exchangeModelResponse.data?.apply {
             assertThat(base == "x").isFalse()

@@ -113,9 +113,10 @@ class CurrencyExchangeViewModelTest {
 
         runBlocking {
             val commissionFreeLeft = currencyExchangeViewModel.freeConvertLeft.first()
-            Truth.assertThat(commissionFreeLeft==4).isTrue()
+            Truth.assertThat(commissionFreeLeft == 4).isTrue()
         }
     }
+
     @Test
     fun decreaseFreeConvertLeft_returnFalse() {
         currencyExchangeViewModel.decreaseFreeConvertLeft()
@@ -123,7 +124,7 @@ class CurrencyExchangeViewModelTest {
 
         runBlocking {
             val commissionFreeLeft = currencyExchangeViewModel.freeConvertLeft.first()
-            Truth.assertThat(commissionFreeLeft==4).isFalse()
+            Truth.assertThat(commissionFreeLeft == 4).isFalse()
         }
     }
 
@@ -131,19 +132,19 @@ class CurrencyExchangeViewModelTest {
      * we now currencyExchangeViewModel initial value is 0
      */
     @Test
-    fun increaseConvertTimeCount_returnTrue(){
+    fun increaseConvertTimeCount_returnTrue() {
         currencyExchangeViewModel.increaseConvertTimeCount()
         currencyExchangeViewModel.increaseConvertTimeCount()
         currencyExchangeViewModel.increaseConvertTimeCount()
 
         runBlocking {
             val convertTime = currencyExchangeViewModel.convertTimeCount.first()
-            Truth.assertThat(convertTime==3).isTrue()
+            Truth.assertThat(convertTime == 3).isTrue()
         }
     }
 
     @Test
-    fun increaseConvertTimeCount_returnFalse(){
+    fun increaseConvertTimeCount_returnFalse() {
         currencyExchangeViewModel.increaseConvertTimeCount()
         currencyExchangeViewModel.increaseConvertTimeCount()
         currencyExchangeViewModel.increaseConvertTimeCount()
@@ -155,7 +156,7 @@ class CurrencyExchangeViewModelTest {
     }
 
     @Test
-    fun changeCommissionPlan_returnTrue(){
+    fun changeCommissionPlan_returnTrue() {
         currencyExchangeViewModel.changeCommissionPlan(CommissionPlan.Every5)
 
         runBlocking {
@@ -164,8 +165,9 @@ class CurrencyExchangeViewModelTest {
         }
 
     }
+
     @Test
-    fun changeCommissionPlan_returnFalse(){
+    fun changeCommissionPlan_returnFalse() {
         currencyExchangeViewModel.changeCommissionPlan(CommissionPlan.First5)
 
         runBlocking {
@@ -174,8 +176,9 @@ class CurrencyExchangeViewModelTest {
         }
 
     }
+
     @Test
-    fun refreshConvertItemCount_returnTrue(){
+    fun refreshConvertItemCount_returnTrue() {
         currencyExchangeViewModel.increaseConvertTimeCount()
         currencyExchangeViewModel.increaseConvertTimeCount()
         currencyExchangeViewModel.increaseConvertTimeCount()
@@ -183,12 +186,12 @@ class CurrencyExchangeViewModelTest {
         currencyExchangeViewModel.refreshConvertItemCount()
         runBlocking {
             val convertTime = currencyExchangeViewModel.convertTimeCount.first()
-            Truth.assertThat(convertTime==1).isTrue()
+            Truth.assertThat(convertTime == 1).isTrue()
         }
     }
 
     @Test
-    fun refreshConvertItemCount_returnFalse(){
+    fun refreshConvertItemCount_returnFalse() {
         currencyExchangeViewModel.increaseConvertTimeCount()
         currencyExchangeViewModel.increaseConvertTimeCount()
         currencyExchangeViewModel.increaseConvertTimeCount()
@@ -199,7 +202,7 @@ class CurrencyExchangeViewModelTest {
 
         runBlocking {
             val convertTime = currencyExchangeViewModel.convertTimeCount.first()
-            Truth.assertThat(convertTime==1).isFalse()
+            Truth.assertThat(convertTime == 1).isFalse()
         }
     }
 }

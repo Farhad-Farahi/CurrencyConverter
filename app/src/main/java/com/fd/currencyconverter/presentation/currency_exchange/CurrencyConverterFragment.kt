@@ -212,16 +212,27 @@ class CurrencyConverterFragment : Fragment() {
 
         binding.tvChangeCommissionPlan.setOnClickListener {
 
-            val options = arrayOf(CommissionPlan.First5.toString(), CommissionPlan.Every5.toString())
+            val options =
+                arrayOf(CommissionPlan.First5.toString(), CommissionPlan.Every5.toString())
+
+            val openingPlan: Int = when (commissionPlan) {
+                CommissionPlan.First5 -> {
+                    CommissionPlan.First5.index
+                }
+                CommissionPlan.Every5 -> {
+                    CommissionPlan.Every5.index
+                }
+            }
+
 
             val dialog2 = AlertDialog.Builder(binding.root.context)
                 .setTitle("Choose Commission plan")
-                .setSingleChoiceItems(options, 0) { _, i ->
-                    when(i){
-                        0 ->{
+                .setSingleChoiceItems(options, openingPlan) { _, i ->
+                    when (i) {
+                        0 -> {
                             viewModel.changeCommissionPlan(CommissionPlan.First5)
                         }
-                        1 ->{
+                        1 -> {
                             viewModel.changeCommissionPlan(CommissionPlan.Every5)
                             viewModel.refreshConvertItemCount()
                         }
